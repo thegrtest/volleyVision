@@ -61,3 +61,11 @@ product, and only pay the training cost once it's proven worthwhile.
 
 Open follow-up: research existing **open-source volleyball ball-tracking weights/datasets**
 before training our own — reusing one could skip ball fine-tuning entirely.
+
+**✅ Verified (see [`MODELS_RESEARCH.md`](MODELS_RESEARCH.md)):** off-the-shelf volleyball
+ball detectors exist and are downloadable (90%+ precision reported), and a permissively
+licensed (BSD) labeled **action-recognition dataset** exists (Ibrahim et al.) — so even
+event recognition has a real training set. Availability is solved. The one real constraint
+is **licensing**: the best ready weights are GPL/NonCommercial (fine to prototype, not to
+ship), so for production we **train our own weights on permissive data**. Net effect:
+we still don't train upfront, and we now know exactly which datasets to retrain on later.
