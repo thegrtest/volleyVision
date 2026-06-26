@@ -1,6 +1,8 @@
-# volleyVision
+# NetSight
 
-Computer-vision volleyball analytics. Upload a game video (YouTube link or file),
+🌐 **netsight.org** · Computer-vision volleyball analytics.
+
+Upload a game video (YouTube link or file),
 get **per-player stats, contribution scores, and rankings** — the kind of box score
 a coach would tally by hand, generated automatically.
 

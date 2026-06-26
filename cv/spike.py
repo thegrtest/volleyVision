@@ -40,7 +40,7 @@ def build_tracker(args):
 
 
 def main():
-    p = argparse.ArgumentParser(description="volleyVision Phase 1 detect+track spike")
+    p = argparse.ArgumentParser(description="NetSight Phase 1 detect+track spike")
     src = p.add_mutually_exclusive_group(required=True)
     src.add_argument("--video", help="path to a local video file")
     src.add_argument("--youtube", help="YouTube URL")

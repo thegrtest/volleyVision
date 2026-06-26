@@ -1,4 +1,4 @@
-# volleyVision — Your Manual Setup Checklist
+# NetSight — Your Manual Setup Checklist
 
 This is **your track**. Everything here is stuff a human has to do (accounts, footage,
 hardware, real-world testing) and almost all of it can be done **ahead of the software**,

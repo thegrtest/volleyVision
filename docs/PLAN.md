@@ -1,4 +1,4 @@
-# volleyVision — Master Execution Plan
+# NetSight — Master Execution Plan
 
 This is the plan we follow. It is sequenced for **speed to a shippable MVP**, then
 hardened toward the full automated, multi-camera vision.

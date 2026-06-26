@@ -1,4 +1,4 @@
-# volleyVision — Stats & Ranking Model
+# NetSight — Stats & Ranking Model
 
 For the product to be credible, the numbers must match how volleyball is **actually
 statted by coaches**. This doc defines the events we detect, the stats we compute, and

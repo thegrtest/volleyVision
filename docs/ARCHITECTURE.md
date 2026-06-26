@@ -1,4 +1,4 @@
-# volleyVision — Technical Architecture
+# NetSight — Technical Architecture
 
 This describes the stack and how the pieces fit. It's chosen for **fast shipping** and
 for being the right long-term foundation (real-time + multi-camera) without a rewrite.
@@ -109,7 +109,7 @@ usage, not uptime — important for an early-stage budget.
 ## Repo layout (target)
 
 ```
-volleyVision/
+netsight/  # repo dir (GitHub repo still named volleyVision for now)
 ├── docs/                 # this plan
 ├── cv/                   # Python CV pipeline (the heart)
 │   ├── ingest/ detect/ track/ identify/ court/ pose/ events/ stats/

@@ -1,4 +1,4 @@
-# cv/ — the volleyVision perception pipeline
+# cv/ — the NetSight perception pipeline
 
 Phase 1 scope: **ingest a video (file or YouTube) → detect people + ball → track them
 with stable IDs → render an annotated video → emit `tracks.json`.**
