@@ -9,7 +9,7 @@ Override any you want.
 | D1 | **Processing model** | Offline/batch (upload → process → review) | Fastest to ship; matches YouTube/film footage. Real-time deferred to Phase 7. |
 | D2 | **First camera scope** | Single fixed camera | One wide view gets ~80% of value; multi-cam is a large later phase. |
 | D3 | **MVP automation level** | Human-in-the-loop verified stats | Lets us show parents *trustworthy* numbers on day one while automation matures. |
-| D4 | **Detection/tracking stack** | Ultralytics YOLO + ByteTrack | Best speed/accuracy/ergonomics; huge ecosystem; fine-tunable later. |
+| D4 | **Detection/tracking stack** | **YOLOX + ByteTrack** | Reuses your existing YOLOX projects, and ByteTrack was built on YOLOX by the same team (Megvii) so they integrate natively. (Was Ultralytics YOLO; switched to leverage your code.) |
 | D5 | **Pose** | MediaPipe to start | Your instinct; easy, runs anywhere. Path to RTMPose if multi-person robustness needs it. |
 | D6 | **Data / Auth / Storage** | Supabase | Postgres + auth + storage + row-level security in one — fastest path to a real multi-tenant app, and RLS matters for minors' data. |
 | D7 | **Parent app** | Next.js on Vercel | Trivial deploys, shareable preview links, mobile-friendly web (parents have phones). |
@@ -31,3 +31,11 @@ The phasing in [`PLAN.md`](PLAN.md) optimizes for "shippable to parents fastest"
 offline + single-camera + human-verified first. If you'd rather, say, prioritize
 real-time or multi-camera earlier, tell me and I'll re-sequence — but I'd recommend
 against it for speed-to-MVP.
+
+## Locked decisions (confirmed 2026-06-26)
+- ✅ Defaults accepted. We **will move to real-time** later but keep the offline-first
+  phasing for now.
+- ✅ **D4 changed to YOLOX + ByteTrack** to tie into existing YOLOX projects.
+- ✅ Phase 1 starts on a **YouTube link** while real footage is gathered in parallel.
+- ⬜ **Still needed:** the YouTube link to spike on, and a pointer to the existing
+  YOLOX projects/weights so I can wire them in rather than rebuild.

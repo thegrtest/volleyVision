@@ -1,0 +1,16 @@
+# Phase 1 spike dependencies.
+# YOLOX and ByteTrack are installed from their own repos (they aren't simple PyPI
+# packages); see cv/README.md. These cover ingest, IO, and annotation.
+
+numpy>=1.24
+opencv-python>=4.8
+yt-dlp>=2024.1          # YouTube ingest
+tqdm>=4.66              # progress bars
+
+# Torch is required by YOLOX; pin to whatever your YOLOX project/GPU expects.
+# torch>=2.0
+# torchvision>=0.15
+
+# Tracking — ByteTrack utilities (installed from source per its repo):
+# lap, cython-bbox, scipy  # ByteTrack's matching deps
+scipy>=1.10

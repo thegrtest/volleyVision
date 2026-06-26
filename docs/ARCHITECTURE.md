@@ -41,11 +41,11 @@ footage. Real-time (Phase 7) reuses the same stages on a frame stream.
 ## Why these choices
 
 ### CV pipeline — Python
-- **Ultralytics YOLO** (v8/v11) for player + ball detection. Pretrained to start; fine-tuned
-  on our labeled volleyball data in Phase 5. Best speed/accuracy/ergonomics trade-off and a
-  huge ecosystem.
+- **YOLOX** for player + ball detection (reusing existing in-house YOLOX projects/weights).
+  Pretrained to start; fine-tuned on our labeled volleyball data in Phase 5. ByteTrack was
+  built on YOLOX by the same team, so the detector→tracker handoff is native.
 - **ByteTrack** (or BoT-SORT) for multi-object tracking — strong at keeping IDs through the
-  brief occlusions volleyball is full of.
+  brief occlusions volleyball is full of, and pairs natively with YOLOX.
 - **Jersey number OCR**: scene-text recognizers (PARSeq / EasyOCR) on player crops, with
   multi-frame voting. Jersey number is our practical identity anchor.
 - **Re-ID embeddings** (e.g. OSNet): appearance vectors to re-link players after occlusion
