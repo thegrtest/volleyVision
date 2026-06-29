@@ -66,5 +66,6 @@ otherwise unpublish Pages, or move the public demo to the eventual Vercel deploy
   demo, repoint or hide the button for the static build.
 - **Database** is intentionally skipped for this demo (nothing in the UI reads it yet).
   When a roster/stats screen needs data, wire `DATABASE_URL` (Neon/Supabase/local Postgres)
-  and run `npm run db:migrate` — see [`web/README.md`](../web/README.md).
+  and run `npm run db:migrate`. Full production backend setup (Vercel + Postgres) is in
+  [`BACKEND.md`](./BACKEND.md).
 - **The `cv/` pipeline** is not part of the web demo; it's a separate Python service.
