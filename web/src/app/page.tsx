@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const features = [
   {
     title: "Per-player stats",
@@ -42,12 +40,12 @@ export default function Home() {
           real plays, and are ranked on real performance.
         </p>
         <div className="mt-10 flex items-center justify-center gap-4">
-          <Link
-            href="/api/health"
+          <a
+            href="#how-it-works"
             className="rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition hover:opacity-90"
           >
-            Check system status
-          </Link>
+            See how it works
+          </a>
           <a
             href="https://github.com/thegrtest/volleyVision"
             className="rounded-full border border-black/10 px-6 py-3 text-sm font-semibold transition hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/5"
@@ -73,7 +71,7 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="mx-auto max-w-5xl px-6 py-12">
+      <section id="how-it-works" className="mx-auto max-w-5xl scroll-mt-16 px-6 py-12">
         <h2 className="text-center text-2xl font-bold tracking-tight">How it works</h2>
         <div className="mt-10 grid gap-8 sm:grid-cols-3">
           {steps.map((s) => (
