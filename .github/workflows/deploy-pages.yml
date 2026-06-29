@@ -1,0 +1,70 @@
+# Deploys the web/ frontend to GitHub Pages as a static export.
+#
+# This publishes the MARKETING FRONTEND ONLY (the landing page). GitHub Pages serves
+# static files with no server, so API routes and the database are NOT part of this
+# deploy — that backend is hosted separately (e.g. Vercel + managed Postgres) later.
+#
+# One-time setup in the repo: Settings → Pages → "Build and deployment" → Source =
+# "GitHub Actions". Then every push to main rebuilds and republishes.
+name: Deploy web to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch: {}
+
+# Permissions the Pages deployment needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; newer pushes supersede in-flight runs.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+
+      - name: Build static export
+        env:
+          BUILD_STATIC: "true"
+          # Project sites live at https://<owner>.github.io/<repo>/, so assets must be
+          # served from the /<repo> subpath. For a custom domain or a <owner>.github.io
+          # root site, set this to an empty string instead.
+          PAGES_BASE_PATH: "/${{ github.event.repository.name }}"
+        run: npm run build:static
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
